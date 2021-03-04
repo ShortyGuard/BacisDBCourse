@@ -1,0 +1,11 @@
+-- Сделать резервную копию базы, удалить базу и пересоздать из бекапа.
+
+-- создание бекапа
+mysqldump -u root -p --databases geodata employees > emp_plus_geo.sql
+
+-- удалить базы из workbench например
+drop database employees;
+drop database geodata;
+
+-- восстановление
+mysql -u root -p < emp_plus_geo.sql
